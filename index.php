@@ -1,18 +1,20 @@
-<!-- 
-Importe a classe Planta.
-Crie um objeto da classe Planta.
-Utilize os dados informados no enunciado. -->
+<?php
+require 'src/Planta.php';
+$planta = new Planta("Costela-de-Adão", "Monstera deliciosa", 150);
+$planta1 = new Planta("Cacto", "Cactaceae", 10);
+$planta2 = new Planta("Jiboia", "Epipremnum aureum", 100);
+$plantas = array($planta, $planta1, $planta2);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Plantas</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-
     <main class="container">
 
         <h1>Catálogo de Plantas</h1>
@@ -20,38 +22,32 @@ Utilize os dados informados no enunciado. -->
         <p class="subtitulo">
             Cuidados simples para cultivar em casa.
         </p>
-
+        
+        <?php foreach($plantas as $planta): ?>
         <section class="cartao">
 
-            <h2>
-                <!-- Exiba o nome popular da planta. -->
-            </h2>
+            <h2><?= $planta->getNome() ?></h2>
 
             <div class="informacao">
                 <span class="rotulo">Espécie científica</span>
 
-                <span class="valor">
-                    <!-- Exiba a espécie. -->
-                </span>
+                <span class="valor"><?= $planta->getEspecie() ?></span>
             </div>
 
             <div class="informacao">
                 <span class="rotulo">Água recomendada por dia</span>
 
-                <span class="valor">
-                    <!-- Exiba a quantidade diária em ml. -->
-                </span>
+                <span class="valor"><?= $planta->getAguaPorDia() ?></span>
             </div>
 
             <div class="destaque">
                 <strong>Recomendação para sete dias</strong>
 
-                <p>
-                    <!-- Exiba a quantidade calculada para sete dia -->
-                </p>
+                <p><?= $planta->calcularAguaSemanal() ?></p>
             </div>
 
         </section>
+        <?php endforeach; ?>
 
         <footer>
             Projeto desenvolvido com PHP e Programação Orientada a Objetos.
