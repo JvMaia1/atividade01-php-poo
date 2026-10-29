@@ -21,11 +21,11 @@ class Planta {
         return $this->especie;
     }
 
-    public function getAguaPorDia(): int {
+    public function getAguaPorDia(): float {
        return $this->aguaDiaria;
     }
 
-    public function calcularAguaSemanal(): int {
+    public function calcularAguaSemanal(): float {
           return $this->aguaDiaria*7;
     }
 }
